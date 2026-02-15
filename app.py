@@ -2,7 +2,7 @@ import os
 import streamlit as st
 import requests
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.tools import Tool
+from langchain_core.tools import Tool
 from langchain.agents import create_react_agent, AgentExecutor
 from langchain import hub
 
