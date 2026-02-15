@@ -2,8 +2,10 @@ import os
 import streamlit as st
 import requests
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.agents import initialize_agent, Tool
-from langchain.agents import AgentType
+from langchain.tools import Tool
+from langchain.agents import create_react_agent, AgentExecutor
+from langchain import hub
+
 
 # Read API keys from environment variables for safety
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyDJ22m_KzJ1QXEvxZFeBulR_ogVgNHrgqk")
@@ -59,11 +61,19 @@ hotel_tool = Tool(name="Hotel Tool", func=get_hotels, description="Provides hote
 tools = [weather_tool, flight_tool, hotel_tool]
 
 agent = None
+
 if llm:
-    agent = initialize_agent(
-        tools,
-        llm,
-        agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+    prompt_template = hub.pull("hwchase17/react")
+
+    react_agent = create_react_agent(
+        llm=llm,
+        tools=tools,
+        prompt=prompt_template
+    )
+
+    agent = AgentExecutor(
+        agent=react_agent,
+        tools=tools,
         verbose=True
     )
 
@@ -92,7 +102,7 @@ if st.button("Plan Trip"):
         User request: {user_input}
         """
         try:
-            response = agent.run(prompt)
+           response = agent.invoke({"input": prompt})        
         except Exception as e:
             response = f"Agent error: {e}"
-        st.write(response)
+        st.write(response["output"])
