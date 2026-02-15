@@ -8,7 +8,7 @@ from langchain_core.tools import Tool
 from langchain.agents import create_react_agent, AgentExecutor
 from langchain import hub
 
-GEMINI_API_KEY = "AIzaSyBp2tbJXBHkQhCjdwOFde5lbTx2Mp995PU"
+GEMINI_API_KEY = "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"
 EXCHANGE_API_KEY = "c10a75b5a37ca95e71455efb"
 
 llm = ChatGoogleGenerativeAI(
