@@ -8,7 +8,7 @@ from langchain import hub
 
 
 
-GEMINI_API_KEY = "AIzaSyDuDyMZUTOFeM9MlCa8A6DxkA3JDxi4Oaw"
+GEMINI_API_KEY = "AIzaSyBp2tbJXBHkQhCjdwOFde5lbTx2Mp995PU"
 WEATHER_API_KEY = "484d4c642f6187b98ea80ab3d64e6e51"
 
 
