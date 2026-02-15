@@ -8,9 +8,8 @@ from langchain import hub
 
 
 
-# Read API keys from environment variables for safety
-GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
-WEATHER_API_KEY = st.secrets["WEATHER_API_KEY"]
+GEMINI_API_KEY = "AIzaSyDuDyMZUTOFeM9MlCa8A6DxkA3JDxi4Oaw"
+WEATHER_API_KEY = "484d4c642f6187b98ea80ab3d64e6e51"
 
 
 # Initialize LLM if key provided
