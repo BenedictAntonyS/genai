@@ -1,7 +1,8 @@
 streamlit
 requests
-langchain>=0.2.0
+langchain>=0.2.15
 langchain-core
+langchain-community
 langchain-google-genai
 google-generativeai
 langchainhub
