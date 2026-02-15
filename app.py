@@ -9,8 +9,9 @@ from langchain import hub
 
 
 # Read API keys from environment variables for safety
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyDJ22m_KzJ1QXEvxZFeBulR_ogVgNHrgqk")
-WEATHER_API_KEY = os.getenv("WEATHER_API_KEY", "484d4c642f6187b98ea80ab3d64e6e51")
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+WEATHER_API_KEY = st.secrets["WEATHER_API_KEY"]
+
 
 # Initialize LLM if key provided
 llm = None
