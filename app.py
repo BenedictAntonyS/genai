@@ -79,8 +79,8 @@ if llm:
     )
 
 # ---------------- STREAMLIT UI ----------------
-st.title("AI Trip Planner Agent 🌍")
-st.write("Provide a destination and I'll plan a short trip. (Requires GEMINI_API_KEY and WEATHER_API_KEY)")
+st.title("AI Trip Planner Agent ")
+
 
 user_input = st.text_input("Enter your trip request:")
 
