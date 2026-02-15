@@ -106,5 +106,5 @@ if st.button("Plan Trip"):
            response = agent.invoke({"input": prompt})        
         except Exception as e:
             response = f"Agent error: {e}"
-        st.write(response)
+        st.write(response["output"])
         
